@@ -1,3 +1,5 @@
+** Work in progress **
+
 This program is for educative purposes.
 
 It will implement thread pool shared amongst all cpu available.

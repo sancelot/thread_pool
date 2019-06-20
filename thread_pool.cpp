@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <math.h>
 #include <sys/mman.h>
+#include <string.h>
 static sem_t   jobs;    /* number of job requested   */
 
 class ThreadPool {
@@ -64,8 +65,10 @@ for (int n=0;n < num_threads;n++)
     // each allocated thread is linked to a core.
     cpu_set_t cpuset;
 	CPU_ZERO(&cpuset);
-	CPU_SET(1 << n,&cpuset);
+	CPU_SET(n,&cpuset);
     ret = pthread_setaffinity_np(*t,sizeof(cpu_set_t), &cpuset);
+    if (ret != 0)
+        printf("pthread_setaffinity_np failed mask: $%x error:%s\n",1 << n,strerror(ret));
 
     threads.push_back(t);
 }

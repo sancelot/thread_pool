@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
+#include <sys/mman.h>
 static sem_t   jobs;    /* number of job requested   */
 
 class ThreadPool {
@@ -59,6 +60,7 @@ void ThreadPool::PushJob()
 
 int main()
 {
+mlockall(MCL_CURRENT|MCL_FUTURE);
 ThreadPool *pool = new ThreadPool(4);
 pause();
 }

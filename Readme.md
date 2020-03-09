@@ -14,3 +14,5 @@ File reading and writing are slow operations
 disk swap:
 for efficiency , swap of the application is forbidden.
 It implies that machine with not enough memory will not being able use this program.
+
+TODO: adapt it to win32

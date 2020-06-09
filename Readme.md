@@ -5,7 +5,7 @@ This program is for educative purposes.
 It will implement thread pool shared amongst all cpu available in a linux system.
 
 ThreadPool :
-Creating and deallocating threads to run parallel tasks is  consuming a lot of kernel system accesses and is not efficient.
+Creating and deallocating threads to run parallel tasks is  consuming a lot of kernel system calls  and is not efficient.
 kernel accesses must be limited for performance.
 To solve it  a thread pool is setted up.
 
